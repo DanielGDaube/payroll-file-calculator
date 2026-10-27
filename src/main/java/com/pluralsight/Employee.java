@@ -48,4 +48,10 @@ public class Employee {
         this.hoursWorked = hoursWorked;
         this.payRate = payRate;
     }
+
+    // Calculates the gross pay using hoursWorked and payRate, accounts for overtime
+    public double getGrossPay(){
+        double overTime = hoursWorked - 40;
+        return (hoursWorked > 40)? (overTime * (payRate + (payRate * 1.5))) + ((hoursWorked - overTime) * payRate) : hoursWorked * payRate;
+    }
 }
