@@ -1,11 +1,10 @@
 package com.pluralsight;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 public class PayrollCalculator {
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args)  {
 
         try {
             BufferedReader employeeReader = new BufferedReader(new FileReader("employees.csv"));
@@ -21,6 +20,9 @@ public class PayrollCalculator {
                 double pay = Double.parseDouble(tokens[3]);
 
                 Employee employee = new Employee(id, name, hours, pay);
+
+                System.out.printf("%s, %s: $%.2f %n",
+                        employee.getEmployeeId(), employee.getName(), employee.getGrossPay());
             }
 
         }
